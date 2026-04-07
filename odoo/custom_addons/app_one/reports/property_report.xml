@@ -1,0 +1,297 @@
+<odoo>
+
+    <!-- Report Action -->
+    <record id="property_report" model="ir.actions.report">
+        <field name="name">Property Report</field>
+        <field name="model">property</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_property"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">app_one.property_report_template</field>
+    </record>
+
+    <template id="property_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <style>
+                    body {
+                    font-family: 'GravitasOne-Regular';
+                    color: #333;
+                    }
+                    .header-section {
+                    background-color: #667eea;
+                    color: white;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                    border-radius: 5px;
+                    }
+                    .header-section h1 {
+                    margin: 0 0 10px 0;
+                    font-size: 24px;
+                    }
+                    .status-badge {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    background-color: rgba(255,255,255,0.3);
+                    border-radius: 3px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    }
+                    .section-title {
+                    background-color: #667eea;
+                    color: white;
+                    padding: 10px 15px;
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    border-radius: 3px;
+                    }
+                    table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 15px;
+                    }
+                    th {
+                    background-color: #f0f0f0;
+                    padding: 12px;
+                    text-align: left;
+                    font-weight: bold;
+                    border: 1px solid #ddd;
+                    }
+                    td {
+                    padding: 12px;
+                    border: 1px solid #ddd;
+                    }
+                    tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                    }
+                    .label {
+                    font-weight: bold;
+                    color: #667eea;
+                    width: 30%;
+                    }
+                    .highlight-price {
+                    background-color: #f0f0ff;
+                    padding: 15px;
+                    margin: 15px 0;
+                    border-left: 4px solid #667eea;
+                    border-radius: 3px;
+                    }
+                    .price-item {
+                    display: inline-block;
+                    margin-right: 40px;
+                    margin-bottom: 10px;
+                    }
+                    .price-label {
+                    font-size: 11px;
+                    color: #667eea;
+                    font-weight: bold;
+                    }
+                    .price-value {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #667eea;
+                    }
+                    .feature-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin: 15px 0;
+                    }
+                    .feature-box {
+                    padding: 10px;
+                    background-color: #f9f9f9;
+                    border: 1px solid #ddd;
+                    border-radius: 3px;
+                    }
+                    .tags {
+                    margin: 10px 0;
+                    }
+                    .tag {
+                    display: inline-block;
+                    background-color: #667eea;
+                    color: white;
+                    padding: 5px 10px;
+                    margin: 3px;
+                    border-radius: 3px;
+                    font-size: 12px;
+                    }
+                    .description-box {
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 3px;
+                    margin-top: 10px;
+                    }
+                    .footer {
+                    margin-top: 30px;
+                    padding-top: 15px;
+                    border-top: 2px solid #ddd;
+                    text-align: center;
+                    font-size: 11px;
+                    color: #666;
+                    }
+                </style>
+                <t t-foreach="docs" t-as="doc">
+
+                    <!-- Header -->
+                    <div class="header-section">
+                        <h1>
+                            <t t-esc="doc['name']"/>
+                        </h1>
+                        <div>
+                            <span class="status-badge">Status:
+                                <t t-esc="doc.state"/>
+                            </span>
+                            <span style="margin-left: 20px;">📍 Postcode:
+                                <t t-esc="doc['postcode']"/>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Summary -->
+                    <div class="highlight-price">
+                        <div class="price-item">
+                            <div class="price-label">Selling Price</div>
+                            <div class="price-value">
+                                <t t-esc="'{:,.2f}'.format(doc['selling_price'])"/>
+                                €
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Expected Price</div>
+                            <div class="price-value">
+                                <t t-esc="'{:,.2f}'.format(doc['expected_price'])"/>
+                                €
+                            </div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Difference</div>
+                            <div class="price-value">
+                                <t t-esc="'{:+,.2f}'.format(doc['diff'])"/>
+                                €
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="section-title">Property Details</div>
+                    <table>
+                        <tr>
+                            <td class="label">Bedrooms</td>
+                            <td>
+                                <t t-esc="doc['bedrooms']"/>
+                            </td>
+                            <td class="label">Living Area (m²)</td>
+                            <td>
+                                <t t-esc="doc['living_area'] or 'N/A'"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Facades</td>
+                            <td>
+                                <t t-esc="doc['facades'] or 'N/A'"/>
+                            </td>
+                            <td class="label">Garden Area (m²)</td>
+                            <td>
+                                <t t-esc="doc['garden_area'] or 'N/A'"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Features -->
+                    <div class="section-title">Features</div>
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <strong>Garage:</strong>
+                            <t t-esc="'Yes' if doc['garage'] else 'No'"/>
+                        </div>
+                        <div class="feature-box">
+                            <strong>Garden:</strong>
+                            <t t-esc="'Yes' if doc['garden'] else 'No'"/>
+                        </div>
+                        <div class="feature-box">
+                            <strong>Orientation:</strong>
+                            <t t-esc="doc.garden_orientation"/>
+                        </div>
+                        <div class="feature-box">
+                            <strong>Expected Sell Date:</strong>
+                            <t t-esc="doc.expected_selling_data"/>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="section-title">Contact Information</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Property</th>
+                                <th>Item</th>
+                                <th>Owner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="label">Phone</td>
+                                <td>
+                                    <t t-esc="doc['phone']"/>
+                                </td>
+                                <td class="label">Phone</td>
+                                <td>
+                                    <t t-esc="doc['owner_phone']"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Email</td>
+                                <td>
+                                    <t t-esc="doc['email']"/>
+                                </td>
+                                <td class="label">Email</td>
+                                <td>
+                                    <t t-esc="doc['owner_email']"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="label">Owner:
+                                    <t t-esc="doc.owner_id.name"/>
+                                </td>
+                                <td colspan="2" class="label">Available:
+                                    <t t-esc="doc.data_availability"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tags -->
+                    <t t-if="doc['tag_ids']">
+                        <div class="section-title">Tags</div>
+                        <div class="tags">
+                            <t t-foreach="doc['tag_ids']" t-as="tag">
+                                <span class="tag">
+                                    <t t-esc="tag.name"/>
+                                </span>
+                            </t>
+                        </div>
+                    </t>
+
+                    <!-- Description -->
+                    <t t-if="doc['description']">
+                        <div class="section-title">Description</div>
+                        <div class="description-box">
+                            <t t-esc="doc['description']"/>
+                        </div>
+                    </t>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                        <p>Report generated on <t t-esc="doc.create_date"/></p>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

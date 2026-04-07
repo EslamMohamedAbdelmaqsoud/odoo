@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Define a new Category (Real Estate) for the Property model -->
+    <record id="property_category" model="ir.module.category">
+        <field name="name">Real Estate</field>
+    </record>
+
+
+    <!-- Define a new Group for the (Property Manager) -->
+    <record id="property_manager_group" model="res.groups">
+        <field name="name">Property Manager</field>
+        <field name="category_id" ref="app_one.property_category"/>
+    </record>
+
+    <!-- Define a new Group for the (Property User) -->
+    <record id="property_user_group" model="res.groups">
+        <field name="name">Property User</field>
+        <field name="category_id" ref="app_one.property_category"/>
+    </record>
+
+    <!-- (Record Rule) by User for Property model -->
+<!--    <record id="property_record_rule_by_user" model="ir.rule">-->
+<!--        <field name="name">Property User Rule</field>-->
+<!--        <field name="model_id" ref="app_one.model_property"/>-->
+<!--        <field name="domain_force">[('create_uid', '=', user.id)]</field>-->
+<!--        <field name="perm_read" eval="True"/>-->
+<!--        <field name="perm_write" eval="True"/>-->
+<!--        <field name="perm_create" eval="True"/>-->
+<!--        <field name="perm_unlink" eval="True"/>-->
+<!--    </record>-->
+
+</odoo>
