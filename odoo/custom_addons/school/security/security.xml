@@ -1,0 +1,39 @@
+<odoo>
+    <!-- Define a new Category (School) for the student model -->
+    <record id="student_category" model="ir.module.category">
+        <field name="name">School Management</field>
+    </record>
+
+
+    <!-- Define a new Group for the (School Manager) -->
+    <record id="school_manager_group" model="res.groups">
+        <field name="name">School Manager</field>
+        <field name="category_id" ref="school.student_category"/>
+        <!--        <field name="implied_ids" eval="[(4, ref('school_user_group'))]"/>-->
+    </record>
+
+    <!-- Define a new Group for the (School Teacher) -->
+    <record id="school_teacher_group" model="res.groups">
+        <field name="name">School Teacher</field>
+        <field name="category_id" ref="school.student_category"/>
+    </record>
+
+    <!--     Define a new Group for the (School User) -->
+    <record id="school_user_group" model="res.groups">
+        <field name="name">School User</field>
+        <field name="category_id" ref="school.student_category"/>
+    </record>
+
+    <!--    &lt;!&ndash;    (Record Rule) by User for Student model&ndash;&gt;-->
+    <!--    <record id="rule_student_personal_data" model="ir.rule">-->
+    <!--        <field name="name">Personal Students Rule</field>-->
+    <!--        <field name="model_id" ref="school.model_student"/>-->
+    <!--        <field name="domain_force">[('create_uid', '=', user.id)]</field>-->
+    <!--        <field name="groups" eval="[(4, ref('school_user_group'))]"/>-->
+    <!--        <field name="perm_read" eval="True"/>-->
+    <!--        <field name="perm_write" eval="True"/>-->
+    <!--        <field name="perm_create" eval="True"/>-->
+    <!--        <field name="perm_unlink" eval="True"/>-->
+    <!--    </record>-->
+
+</odoo>

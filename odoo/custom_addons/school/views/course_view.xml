@@ -1,0 +1,86 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="course_tree_view" model="ir.ui.view">
+        <field name="name">course tree</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="name"/>
+                <field name="price"/>
+                <field name="discount"/>
+                <field name="final_price"/>
+                <field name="description"/>
+                <field name="active" optional="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="course_form_view" model="ir.ui.view">
+        <field name="name">course form</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info.">
+                            <field name="price"/>
+                            <field name="discount"/>
+                            <field name="final_price"/>
+                            <field name="student_ids" widget="many2many_tags"/>
+                            <field name="description" required="1"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Bedrooms">
+                            <field name="line_ids">
+                                <tree>
+                                    <field name="number"/>
+                                    <field name="area"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="course_search_view" model="ir.ui.view">
+        <field name="name">course search</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">course</field>
+    </record>
+
+    <!-- Sub Menu Items Of Courses -->
+    <menuitem id="course_menu_item"
+              name="Course"
+              parent="courses_menu"
+              action="course_action"/>
+
+</odoo>

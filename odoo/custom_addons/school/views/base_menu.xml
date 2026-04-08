@@ -1,0 +1,35 @@
+<odoo>
+
+
+    <!-- Root Menu Items -->
+    <menuitem id="school_management_system_root_menu"
+              name="School"
+              web_icon="school,static/description/icon.png"/>
+
+    <!-- (Students) Sub Menu Items Of Root -->
+    <menuitem id="students_menu"
+              name="Students"
+              parent="school_management_system_root_menu"/>
+
+    <!-- (Courses) Sub Menu Items Of Root -->
+    <menuitem id="courses_menu"
+              name="Courses"
+              parent="school_management_system_root_menu"/>
+
+    <!-- (Years) Sub Menu Items Of Root -->
+    <menuitem id="year_menu"
+              name="Years"
+              parent="school_management_system_root_menu"/>
+
+    <!-- (Classes) Sub Menu Items Of Root -->
+    <menuitem id="classs_menu"
+              name="Classes"
+              parent="school_management_system_root_menu"/>
+
+    <!-- (Subjects) Sub Menu Items Of Root -->
+    <menuitem id="subject_menu"
+              name="Subjects"
+              parent="school_management_system_root_menu"/>
+
+
+</odoo>

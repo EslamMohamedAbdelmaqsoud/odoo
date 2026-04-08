@@ -1,0 +1,250 @@
+<odoo>
+
+    <!-- Report Action -->
+    <record id="student_report" model="ir.actions.report">
+        <field name="name">Student Report</field>
+        <field name="model">student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_student"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">school.student_report_template</field>
+    </record>
+
+    <template id="student_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page student-report-page">
+                        <style>
+                            .student-report-page {
+                            font-family: Arial, sans-serif;
+                            font-size: 17px;
+                            color: #1f2937;
+                            }
+                            .student-report-title {
+                            margin: 0 0 6px 0;
+                            font-size: 34px;
+                            font-weight: 700;
+                            color: #0f172a;
+                            }
+                            .student-report-subtitle {
+                            margin: 0 0 20px 0;
+                            color: #4b5563;
+                            font-size: 17px;
+                            }
+                            .student-report-header {
+                            text-align: center;
+                            margin-bottom: 12px;
+                            }
+                            .student-card {
+                            border: 1px solid #d1d5db;
+                            border-radius: 8px;
+                            margin-bottom: 18px;
+                            overflow: hidden;
+                            }
+                            .student-card-title {
+                            background: #f3f4f6;
+                            margin: 0;
+                            padding: 12px 13px;
+                            font-size: 19px;
+                            font-weight: 700;
+                            }
+                            .student-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            table-layout: fixed;
+                            }
+                            .student-table td {
+                            border-top: 1px solid #e5e7eb;
+                            padding: 12px 13px;
+                            vertical-align: top;
+                            word-wrap: break-word;
+                            font-size: 17px;
+                            }
+                            .student-label {
+                            width: 22%;
+                            font-weight: 700;
+                            background: #fafafa;
+                            font-size: 16px;
+                            }
+                            .student-photo {
+                            width: 72px;
+                            height: 72px;
+                            object-fit: cover;
+                            border: 1px solid #d1d5db;
+                            border-radius: 6px;
+                            }
+                            .student-photo-empty {
+                            width: 72px;
+                            height: 72px;
+                            line-height: 72px;
+                            text-align: center;
+                            border: 1px dashed #9ca3af;
+                            border-radius: 6px;
+                            color: #6b7280;
+                            font-size: 12px;
+                            }
+                            .student-image-cell {
+                            text-align: center;
+                            }
+                            .student-email a {
+                            color: #1f2937;
+                            text-decoration: none;
+                            }
+                            .student-footer {
+                            margin-top: 16px;
+                            padding-top: 10px;
+                            border-top: 1px solid #e5e7eb;
+                            text-align: right;
+                            color: #6b7280;
+                            font-size: 15px;
+                            font-weight: 600;
+                            }
+                        </style>
+
+                        <div class="student-report-header">
+                            <h2 class="student-report-title">Student Report</h2>
+                            <p class="student-report-subtitle">
+                                Profile:
+                                <strong>
+                                    <t t-esc="doc.name or '-'"/>
+                                </strong>
+                            </p>
+                        </div>
+
+                        <div class="student-card">
+                            <h3 class="student-card-title">Basic Information</h3>
+                            <table class="student-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="student-label">Name</td>
+                                        <td>
+                                            <t t-esc="doc.name or '-'"/>
+                                        </td>
+                                        <td class="student-label">Image</td>
+                                        <td class="student-image-cell">
+                                            <t t-if="doc.image">
+                                                <img t-att-src="image_data_uri(doc.image)" class="student-photo"
+                                                     alt="Student Image"/>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="student-photo-empty">No Image</div>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">Age</td>
+                                        <td>
+                                            <t t-esc="doc.age if doc.age is not False else '-'"/>
+                                        </td>
+                                        <td class="student-label">SSN ID</td>
+                                        <td>
+                                            <t t-esc="doc.ssn_id or '-'"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">Enrollment Date</td>
+                                        <td>
+                                            <t t-esc="doc.enrollment_date or '-'"/>
+                                        </td>
+                                        <td class="student-label">Active</td>
+                                        <td>
+                                            <t t-esc="'Yes' if doc.active else 'No'"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="student-card">
+                            <h3 class="student-card-title">Contact Information</h3>
+                            <table class="student-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="student-label">Phone Number</td>
+                                        <td>
+                                            <t t-esc="doc.phone_number or '-'"/>
+                                        </td>
+                                        <td class="student-label">Email</td>
+                                        <td class="student-email">
+                                            <t t-if="doc.email">
+                                                <a t-att-href="'mailto:%s' % doc.email">
+                                                    <t t-esc="doc.email"/>
+                                                </a>
+                                            </t>
+                                            <t t-else="">-</t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">Address</td>
+                                        <td colspan="3">
+                                            <t t-esc="doc.address or '-'"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="student-card">
+                            <h3 class="student-card-title">Academic Information</h3>
+                            <table class="student-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="student-label">Grade</td>
+                                        <td>
+                                            <t t-esc="doc.grade if doc.grade is not False else '-'"/>
+                                        </td>
+                                        <td class="student-label">Gender</td>
+                                        <td>
+                                            <t t-esc="dict(doc._fields['gender'].selection).get(doc.gender, '-')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">Level</td>
+                                        <td>
+                                            <t t-esc="dict(doc._fields['level'].selection).get(doc.level, '-')"/>
+                                        </td>
+                                        <td class="student-label">Language</td>
+                                        <td>
+                                            <t t-esc="dict(doc._fields['language'].selection).get(doc.language, '-')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">Course</td>
+                                        <td>
+                                            <t t-esc="doc.course_id.display_name or '-'"/>
+                                        </td>
+                                        <td class="student-label">Course Final Price</td>
+                                        <td>
+                                            <t t-esc="doc.course_final_price if doc.course_final_price is not False else '-'"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="student-label">State</td>
+                                        <td>
+                                            <t t-esc="dict(doc._fields['state'].selection).get(doc.state, '-')"/>
+                                        </td>
+                                        <td class="student-label">Student ID</td>
+                                        <td>
+                                            <t t-esc="doc.id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="student-footer">
+                            Student ID:
+                            <t t-esc="doc.id"/>
+                            | Page:
+                            <span class="page"/>
+                            /
+                            <span class="topage"/>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

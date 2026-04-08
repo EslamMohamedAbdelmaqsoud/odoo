@@ -1,0 +1,67 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="classs_tree_view" model="ir.ui.view">
+        <field name="name">classs tree</field>
+        <field name="model">classs</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="name"/>
+                <field name="year_id"/>
+                <field name="description" optional="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="classs_form_view" model="ir.ui.view">
+        <field name="name">classs form</field>
+        <field name="model">classs</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info.">
+                            <field name="year_id"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="classs_search_view" model="ir.ui.view">
+        <field name="name">classs search</field>
+        <field name="model">classs</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="classs_action" model="ir.actions.act_window">
+        <field name="name">Class</field>
+        <field name="res_model">classs</field>
+    </record>
+
+    <!-- Sub Menu Items Of Classes -->
+    <menuitem id="classs_menu_item"
+              name="Class"
+              parent="classs_menu"
+              action="classs_action"/>
+</odoo>

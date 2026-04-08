@@ -1,0 +1,66 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="year_tree_view" model="ir.ui.view">
+        <field name="name">year tree</field>
+        <field name="model">year</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="number"/>
+                <field name="class_ids" optional="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="year_form_view" model="ir.ui.view">
+        <field name="name">year form</field>
+        <field name="model">year</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="number"/>
+                        <h1>
+                            <field name="number"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info.">
+                            <field name="class_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="year_search_view" model="ir.ui.view">
+        <field name="name">year search</field>
+        <field name="model">year</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="number"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="year_action" model="ir.actions.act_window">
+        <field name="name">Year</field>
+        <field name="res_model">year</field>
+    </record>
+
+    <!-- Sub Menu Items Of Years -->
+    <menuitem id="year_menu_item"
+              name="Year"
+              parent="year_menu"
+              action="year_action"/>
+
+</odoo>

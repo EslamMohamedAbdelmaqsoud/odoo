@@ -1,0 +1,67 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="subject_tree_view" model="ir.ui.view">
+        <field name="name">subject tree</field>
+        <field name="model">subject</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="year_id" optional="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="subject_form_view" model="ir.ui.view">
+        <field name="name">subject form</field>
+        <field name="model">subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info.">
+                            <field name="description"/>
+                            <field name="year_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="subject_search_view" model="ir.ui.view">
+        <field name="name">subject search</field>
+        <field name="model">subject</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="subject_action" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="res_model">subject</field>
+    </record>
+
+    <!-- Sub Menu Items Of Subjects -->
+    <menuitem id="subject_menu_item"
+              name="Subject"
+              parent="subject_menu"
+              action="subject_action"/>
+</odoo>
