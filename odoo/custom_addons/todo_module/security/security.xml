@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Define a new Category (Todo Task) for the todo task model -->
+    <record id="todo_task_category" model="ir.module.category">
+        <field name="name">Todo Task App</field>
+    </record>
+
+
+    <!-- Define a new Group for the (Todo Task Manager) -->
+    <record id="todo_task_manager_group" model="res.groups">
+        <field name="name">Todo Task Manager</field>
+        <field name="category_id" ref="todo_module.todo_task_category"/>
+    </record>
+
+    <!--     Define a new Group for the (Todo Task User) -->
+    <record id="todo_task_user_group" model="res.groups">
+        <field name="name">Todo Task User</field>
+        <field name="category_id" ref="todo_module.todo_task_category"/>
+    </record>
+
+    <!--&lt;!&ndash;    #(Record Rule) by User for Property model&ndash;&gt;-->
+    <!--    <record id="todo_task_record_rule_by_user" model="ir.rule">-->
+    <!--        <field name="name">Todo Task User Rule</field>-->
+    <!--        <field name="model_id" ref="todo_module.model_todo_task"/>-->
+    <!--        <field name="domain_force">[('create_uid', '=', user.id)]</field>-->
+    <!--        <field name="perm_read" eval="True"/>-->
+    <!--        <field name="perm_write" eval="True"/>-->
+    <!--        <field name="perm_create" eval="True"/>-->
+    <!--        <field name="perm_unlink" eval="True"/>-->
+    <!--    </record>-->
+
+</odoo>

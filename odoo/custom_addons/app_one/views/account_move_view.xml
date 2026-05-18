@@ -8,6 +8,24 @@
             <xpath expr="//header" position="inside">
                 <button name="action_do_something" type="object" class="oe_highlight" string="Do SomeThing"/>
             </xpath>
+
+            <!-- إضافة الحقول المخصصة في نموذج الفاتورة -->
+            <xpath expr="//field[@name='delivery_date']" position="after">
+                <field name="internal_reference"/>
+                <field name="department"/>
+                <field name="cost_center"/>
+            </xpath>
+
+            <!-- إضافة صفحة جديدة للملاحظات -->
+            <xpath expr="//notebook" position="inside">
+                <page string="News 2026">
+                    <group>
+                        <group>
+                            <field name="custom_notes"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
 

@@ -1,0 +1,30 @@
+<odoo>
+
+    <record id="view_hr_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr employee form inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="work_email" position="after">
+                <field name="birth_date"/>
+            </field>
+            <xpath expr="//field[@name='birth_date']" position="after">
+                <field name="age"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Contracts">
+                    <group>
+                        <group>
+                            <field name="birth_date"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

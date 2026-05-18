@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit from the base invoice document template to add custom fields -->
+        <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+            <!-- Add custom fields after the invoice information section -->
+            <xpath expr="//div[@id='informations']" position="inside">
+                <!-- Internal Reference -->
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.internal_reference" name="internal_reference">
+                    <strong> Internal Reference: </strong><br/>
+                    <span t-field="o.internal_reference"/>
+                </div>
+
+                <!-- Department -->
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.department" name="department">
+                    <strong>Department:</strong><br/>
+                    <span t-field="o.department"/>
+                </div>
+
+                <!-- Cost Center -->
+                <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.cost_center" name="cost_center">
+                    <strong>Cost Center:</strong><br/>
+                    <span t-field="o.cost_center"/>
+                </div>
+            </xpath>
+
+            <!-- Add custom notes section after the invoice table -->
+            <xpath expr="//div[@id='payment_term']" position="before">
+                <div t-if="o.custom_notes" name="custom_notes_section" class="oe_structure mt-4 mb-3">
+                    <strong> Newsss</strong>
+                    <div class="border p-3 mt-2 bg-light">
+                        <span t-field="o.custom_notes" t-options="{'widget': 'text'}"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+

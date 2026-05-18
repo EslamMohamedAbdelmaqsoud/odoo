@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_todo_task,access_todo_task,model_todo_task,,1,1,1,1
+access_todo_lines,access_todo_lines,model_todo_lines,,1,1,1,1
+access_bulk_task_assignment_wizard,access_bulk_task_assignment_wizard,model_bulk_task_assignment_wizard,,1,1,1,1

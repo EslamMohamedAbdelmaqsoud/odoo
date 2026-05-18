@@ -3,7 +3,7 @@
     'author': 'Eslam Mohamed',
     'version': '17.0',
     'category': '',
-    'depends': ['base', 'sale_management', 'account', 'mail', 'contacts'
+    'depends': ['base', 'sale_management', 'account', 'mail', 'contacts', 'hr'
                 ],
     'data': [
         "security/security.xml",
@@ -18,8 +18,10 @@
         "views/building_view.xml",
         "views/property_history_view.xml",
         "views/account_move_view.xml",
+        "views/hr_employee_view.xml",
         "wizard/change_state_wizard_view.xml",
         "reports/property_report.xml",
+        "reports/account_invoice_report_inherit.xml",
     ],
     'assets': {
         'web.assets_backend': ['app_one/static/src/css/property.css'],

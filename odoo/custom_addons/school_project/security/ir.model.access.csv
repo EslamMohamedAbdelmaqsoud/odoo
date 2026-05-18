@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_customer,access_school_customer,model_school_customer,,1,1,1,1
+access_school_product,access_school_product,model_school_product,,1,1,1,1
+access_school_order,access_school_order,model_school_order,,1,1,1,1
+access_school_order_line,access_school_order_line,model_school_order_line,,1,1,1,1
+
+

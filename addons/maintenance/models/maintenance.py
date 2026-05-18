@@ -433,3 +433,5 @@ class MaintenanceTeam(models.Model):
     def _compute_equipment(self):
         for team in self:
             team.equipment_count = len(team.equipment_ids)
+
+

@@ -1,0 +1,25 @@
+<odoo>
+
+    <record id="cancel_appointment_wizard_form_view" model="ir.ui.view">
+        <field name="name">cancel.appointment.wizard.form</field>
+        <field name="model">cancel.appointment.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="reason"/>
+                </group>
+                <footer>
+                    <button name="action_cancel_appointment" string="Confirm Cancellation" type="object" class="btn-danger"/>
+                    <button string="Discard" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cancel_appointment_wizard" model="ir.actions.act_window">
+        <field name="name">Cancel Appointment</field>
+        <field name="res_model">cancel.appointment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field> </record>
+
+</odoo>

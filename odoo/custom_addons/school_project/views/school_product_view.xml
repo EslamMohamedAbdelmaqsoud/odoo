@@ -1,0 +1,69 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="school_product_tree_view" model="ir.ui.view">
+        <field name="name">school product tree</field>
+        <field name="model">school.product</field>
+        <field name="arch" type="xml">
+            <tree string="Products" class="header_custom">
+                <field name="name"/>
+                <field name="price"/>
+                <field name="quantity"/>
+                <field name="available"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="school_product_form_view" model="ir.ui.view">
+        <field name="name">school product form</field>
+        <field name="model">school.product</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="available" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="product_search_view" model="ir.ui.view">
+        <field name="name">product search</field>
+        <field name="model">school.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="product_action" model="ir.actions.act_window">
+        <field name="name">product</field>
+        <field name="res_model">school.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sub Menu Items Of Products -->
+    <menuitem id="product_menu_item"
+              name="Product"
+              parent="products_menu"
+              action="product_action"/>
+
+</odoo>
+

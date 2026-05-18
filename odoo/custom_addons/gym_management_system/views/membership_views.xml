@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Tree View For Gym Membership Packages-->
+    <record id="gym_package_tree_view" model="ir.ui.view">
+        <field name="name">gym.package.tree.view</field>
+        <field name="model">gym.package</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="duration_days"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form View For Gym Membership Packages-->
+    <record id="gym_package_form_view" model="ir.ui.view">
+        <field name="name">gym.package.form.view</field>
+        <field name="model">gym.package</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="duration_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Window Action For Gym Membership Packages -->
+    <record id="action_gym_package" model="ir.actions.act_window">
+        <field name="name">Membership Packages</field>
+        <field name="res_model">gym.package</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sub Menu Items Of Configuration ( Packages )-->
+    <menuitem id="menu_gym_packages"
+              name="Packages"
+              parent="menu_gym_config_master"
+              action="action_gym_package"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Form View For Gym Membership Contracts-->
+    <record id="gym_membership_form_view" model="ir.ui.view">
+        <field name="name">gym.membership.form.view</field>
+        <field name="model">gym.membership</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm &amp; Create Invoice"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoice" type="object"
+                                class="oe_stat_button" icon="fa-pencil-square-o"
+                                invisible="not invoice_id"
+                                groups="account.group_account_invoice">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Invoice</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="member_id"/>
+                            <field name="package_id"/>
+                            <field name="invoice_id" groups="account.group_account_invoice"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Window Action For Gym Membership Contracts -->
+    <record id="action_gym_membership" model="ir.actions.act_window">
+        <field name="name">Memberships</field>
+        <field name="res_model">gym.membership</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Scheduled Action To Check For Membership Expiry Daily -->
+    <record id="ir_cron_check_membership_expiry" model="ir.cron">
+        <field name="name">Gym: Check Membership Expiry Daily</field>
+        <field name="model_id" ref="model_gym_membership"/>
+        <field name="state">code</field>
+        <field name="code">model._check_membership_expiry()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <!-- Sub Menu Items Of Members ( Membership Contracts )-->
+    <menuitem id="menu_gym_membership_contract"
+              name="Membership Contracts"
+              parent="menu_gym_members_master"
+              action="action_gym_membership"
+              sequence="20"/>
+</odoo>

@@ -1,0 +1,80 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="school_customer_tree_view" model="ir.ui.view">
+        <field name="name">school customer tree</field>
+        <field name="model">school.customer</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="address"/>
+                <field name="active" optional="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="school_customer_form_view" model="ir.ui.view">
+        <field name="name">school customer form</field>
+        <field name="model">school.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!-- Smart Button View -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_orders" type="object" class="oe_stat_button" icon="fa-shopping-cart"
+                                invisible="not order_count">
+                            <field name="order_count" widget="statinfo" string="Orders"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="General Info.">
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group string=" Additional Info.">
+                            <field name="address" placeholder="Street, City, State, ZIP..."/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="customer_search_view" model="ir.ui.view">
+        <field name="name">customer search</field>
+        <field name="model">school.customer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="customer_action" model="ir.actions.act_window">
+        <field name="name">customer</field>
+        <field name="res_model">school.customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sub Menu Items Of Customers -->
+    <menuitem id="customer_menu_item"
+              name="Customer"
+              parent="customers_menu"
+              action="customer_action"/>
+
+</odoo>
+

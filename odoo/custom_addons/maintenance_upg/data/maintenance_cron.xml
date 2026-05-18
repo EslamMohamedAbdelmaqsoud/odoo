@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_scheduler_maintenance" model="ir.cron">
+            <field name="name">Maintenance: Check Meter Readings</field>
+            <field name="model_id" ref="model_maintenance_pm_plan"/>
+            <field name="state">code</field>
+            <field name="code">model._generate_maintenance_requests()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<odoo>
+
+    <!-- Report Action -->
+    <record id="school_order_report" model="ir.actions.report">
+        <field name="name">School Order Report</field>
+        <field name="model">school.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_school_order"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">school_project.school_order_report_template</field>
+    </record>
+
+    <template id="school_order_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2>Order Number: <span t-field="doc.name"/></h2>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Customer:</strong>
+                                <p class="m-0" t-field="doc.customer_id.name"/>
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Date:</strong>
+                                <p class="m-0" t-field="doc.order_date"/>
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Status:</strong>
+                                <p class="m-0" t-field="doc.state"/>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm o_main_table mt16">
+                            <thead>
+                                <tr>
+                                    <th name="th_description" class="text-left">Product</th>
+                                    <th name="th_quantity" class="text-right">Quantity</th>
+                                    <th name="th_priceunit" class="text-right">Unit Price</th>
+                                    <th name="th_subtotal" class="text-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.order_line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.product_id.name"/></td>
+                                        <td class="text-right"><span t-field="line.quantity"/></td>
+                                        <td class="text-right"><span t-field="line.price"/></td>
+                                        <td class="text-right"><span t-field="line.subtotal"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div class="clearfix" name="so_total_summary">
+                            <div id="total" class="row" name="total">
+                                <div class="col-4 ml-auto">
+                                    <table class="table table-sm">
+                                        <tr class="border-black o_total">
+                                            <td><strong>Total</strong></td>
+                                            <td class="text-right">
+                                                <span t-field="doc.total_order"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

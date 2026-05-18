@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu Items ( Gym Management )-->
+    <menuitem id="menu_gym_root"
+              name="Gym Management"
+              web_icon="gym_management_system,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Sub Menu Items Of Root ( Members )-->
+    <menuitem id="menu_gym_members_master"
+              name="Members"
+              parent="menu_gym_root"
+              sequence="10"/>
+
+    <!-- Sub Menu Items Of Root ( Configuration )-->
+    <menuitem id="menu_gym_config_master"
+              name="Configuration"
+              parent="menu_gym_root"
+              sequence="100"/>
+
+
+
+</odoo>
+

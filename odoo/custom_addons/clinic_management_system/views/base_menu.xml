@@ -1,0 +1,22 @@
+<odoo>
+
+    <!-- Root Menu Items ( Clinic Management )-->
+    <menuitem id="menu_clinic_root"
+              name="Clinic Management"
+              web_icon="clinic_management_system,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Sub Menu Items Of Root ( Patients )-->
+    <menuitem id="menu_patient_master"
+              name="Patients"
+              parent="menu_clinic_root"
+              sequence="10"/>
+
+    <!-- Sub Menu Items Of Root ( Appointments )-->
+    <menuitem id="menu_appointment_master"
+              name="Appointments"
+              parent="menu_clinic_root"
+              sequence="20"/>
+
+
+</odoo>

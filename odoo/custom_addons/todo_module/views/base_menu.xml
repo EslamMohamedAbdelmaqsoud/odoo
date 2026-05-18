@@ -1,0 +1,15 @@
+<odoo>
+
+
+    <!--  Root Menu Items  To-Do -->
+    <menuitem id="todo_root_menu"
+              name="To Do"
+              web_icon="todo_module,static/description/icon.png"/>
+
+    <!-- Submenu: To-Do in Nav bar-->
+    <menuitem id="todo_menu"
+              name="To Do"
+              parent="todo_root_menu"/>
+
+
+</odoo>

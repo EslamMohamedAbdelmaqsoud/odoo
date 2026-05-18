@@ -66,7 +66,7 @@ class Property(models.Model):
                         ('unique_email', 'unique(email)', 'The email is Exist!')
                         ]
 
-    # Validation to check bedrooms ( logic = python codes) API Constraints
+    # Validation to check bedrooms ( logic = Python codes) API Constraints
     @api.constrains('bedrooms')
     def _check_bedrooms_greater_zero(self):  #
         for rec in self:

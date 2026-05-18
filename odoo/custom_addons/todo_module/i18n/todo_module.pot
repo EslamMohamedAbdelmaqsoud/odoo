@@ -1,0 +1,490 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* todo_module
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-04 20:38+0000\n"
+"PO-Revision-Date: 2026-04-04 20:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid ""
+"<strong>Note:</strong>\n"
+"                                Make sure the total time in the timesheet lines does not exceed the estimated time."
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid ""
+"<strong>⚠️ This task is locked!</strong>\n"
+"                        Tasks marked as 'Completed' or 'Closed' cannot be edited.\n"
+"                        Click the 'Unlock' button above to revert the status and make changes."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_needaction
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__active
+msgid "Active"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_ids
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_exception_decoration
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_state
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_type_icon
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.ui.menu,name:todo_module.all_task_menu_item
+msgid "All Tasks"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.bulk_task_assignment_wizard_form
+msgid "Assign Tasks"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.actions.act_window,name:todo_module.bulk_task_assignment_wizard_action
+#: model_terms:ir.ui.view,arch_db:todo_module.bulk_task_assignment_wizard_form
+msgid "Assign Tasks to Employee"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__assign_to
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "Assign To"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__employee_id
+msgid "Assign To Employee"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__description
+msgid "Assignment Description"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_attachment_count
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Back to In Progress"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Back to New"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model,name:todo_module.model_bulk_task_assignment_wizard
+msgid "Bulk Task Assignment Wizard"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.bulk_task_assignment_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Close"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.actions.server,name:todo_module.todo_task_closed_server_action
+#: model:ir.model.fields.selection,name:todo_module.selection__todo_task__status__closed
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Closed"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields.selection,name:todo_module.selection__todo_task__status__completed
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "Completed"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__create_uid
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__create_uid
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__create_date
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__create_date
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__date
+msgid "Date"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__description
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__description
+msgid "Description"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__display_name
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__display_name
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__due_date
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "Due Date"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__estimated_time
+msgid "Estimated Time (hrs)"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_follower_ids
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_partner_ids
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__activity_type_icon
+#: model:ir.model.fields,help:todo_module.field_todo_task__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__has_message
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__id
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__id
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__num
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__id
+msgid "ID"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_exception_icon
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__activity_exception_icon
+#: model:ir.model.fields,help:todo_module.field_todo_task__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__message_needaction
+#: model:ir.model.fields,help:todo_module.field_todo_task__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__message_has_error
+#: model:ir.model.fields,help:todo_module.field_todo_lines__message_has_sms_error
+#: model:ir.model.fields,help:todo_module.field_todo_task__message_has_error
+#: model:ir.model.fields,help:todo_module.field_todo_task__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields.selection,name:todo_module.selection__todo_task__status__in_progress
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "In Progress"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_is_follower
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__is_late
+msgid "Is Late"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "LOCKED - Read Only"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__write_uid
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__write_uid
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__write_date
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__write_date
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__line_ids
+msgid "Line"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Mark as Closed"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_has_error
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_ids
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__my_activity_date_deadline
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__name
+msgid "Name"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields.selection,name:todo_module.selection__todo_task__status__new
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "New"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_date_deadline
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_summary
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_type_id
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_needaction_counter
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_has_error_counter
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__message_needaction_counter
+#: model:ir.model.fields,help:todo_module.field_todo_task__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__message_has_error_counter
+#: model:ir.model.fields,help:todo_module.field_todo_task__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_bulk_task_assignment_wizard__description
+#: model_terms:ir.ui.view,arch_db:todo_module.bulk_task_assignment_wizard_form
+msgid "Optional: Add notes about the assignment"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__ref
+msgid "Ref"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__activity_user_id
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__message_has_sms_error
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_bulk_task_assignment_wizard__task_ids
+msgid "Select Tasks"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__status
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_search_view
+msgid "Status"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__activity_state
+#: model:ir.model.fields,help:todo_module.field_todo_task__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__task_id
+msgid "Task"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.constraint,message:todo_module.constraint_todo_task_unique_name
+msgid "The name is Exist!"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__time
+msgid "Time (hrs)"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "Timesheet Lines"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.ui.menu,name:todo_module.todo_menu
+#: model:ir.ui.menu,name:todo_module.todo_root_menu
+msgid "To Do"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model,name:todo_module.model_todo_task
+msgid "To-Do Task"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.actions.act_window,name:todo_module.todo_task_action
+msgid "ToDo Task"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.actions.report,name:todo_module.todo_task_report
+msgid "Todo Task Report"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.actions.server,name:todo_module.check_due_data_cron_ir_actions_server
+msgid "Todo Task: Check Due Data"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__total_time
+msgid "Total Time"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__activity_exception_decoration
+#: model:ir.model.fields,help:todo_module.field_todo_task__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,field_description:todo_module.field_todo_lines__website_message_ids
+#: model:ir.model.fields,field_description:todo_module.field_todo_task__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model.fields,help:todo_module.field_todo_lines__website_message_ids
+#: model:ir.model.fields,help:todo_module.field_todo_task__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: todo_module
+#: model:ir.model,name:todo_module.model_todo_lines
+msgid "todo.lines"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "🔓 Revert to In Progress"
+msgstr ""
+
+#. module: todo_module
+#: model_terms:ir.ui.view,arch_db:todo_module.todo_task_form_view
+msgid "🔓 Revert to New"
+msgstr ""

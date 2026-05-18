@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_maintenance_pm_plan,maintenance.pm.plan,model_maintenance_pm_plan,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_pm_plan_task,maintenance.pm.plan.task,model_maintenance_pm_plan_task,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_pm_plan_item,maintenance.pm.plan.item,model_maintenance_pm_plan_item,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_request_task,maintenance.request.task,model_maintenance_request_task,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_request_part,maintenance.request.part,model_maintenance_request_part,maintenance.group_equipment_manager,1,1,1,1

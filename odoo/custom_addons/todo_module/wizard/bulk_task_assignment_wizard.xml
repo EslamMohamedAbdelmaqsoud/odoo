@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Bulk Task Assignment Wizard Form View -->
+    <record id="bulk_task_assignment_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.task.assignment.wizard.form</field>
+        <field name="model">bulk.task.assignment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Tasks to Employee">
+                <group>
+                    <field name="employee_id" options="{'no_create': True}" />
+                    <field name="task_ids" widget="many2many" />
+                    <field name="description" placeholder="Optional: Add notes about the assignment" />
+                </group>
+                <footer>
+                    <button name="action_assign_tasks" string="Assign Tasks" type="object" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to Launch the Wizard -->
+    <record id="bulk_task_assignment_wizard_action" model="ir.actions.act_window">
+        <field name="name">Assign Tasks to Employee</field>
+        <field name="res_model">bulk.task.assignment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="todo_module.model_todo_task"/>
+        <field name="binding_type">action</field>
+    </record>
+
+</odoo>
+

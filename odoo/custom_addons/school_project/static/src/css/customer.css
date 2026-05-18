@@ -1,0 +1,23 @@
+.header_custom table thead > tr > th {
+    background: linear-gradient(180deg, #2f7df0 0%, #1f5fc3 100%) !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 10px 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid #154a9e;
+}
+
+.header_custom table thead > tr > th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.header_custom table thead > tr > th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.header_custom table thead > tr > th:nth-child(2),
+.header_custom table thead > tr > th:nth-child(3) {
+    width: 250px !important;
+    min-width: 250px;
+}

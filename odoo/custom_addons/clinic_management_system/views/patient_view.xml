@@ -1,0 +1,93 @@
+<odoo>
+
+    <!-- Tree View -->
+    <record id="patient_tree_view" model="ir.ui.view">
+        <field name="name">patient tree view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="reference"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="patient_form_view" model="ir.ui.view">
+        <field name="name">patient form view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_appointments" type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="appointment_count" string="Appointments" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_of_birth"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!--Adding Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="patient_search_view" model="ir.ui.view">
+        <field name="name">patient search view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                <field name="phone"/>
+                <filter string="Males" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Females" name="female" domain="[('gender', '=', 'female')]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="action_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Sub Menu Items Of Patients -->
+    <menuitem id="menu_patient_item"
+              name="All Patients"
+              parent="menu_patient_master"
+              action="action_patient"
+              sequence="10"/>
+
+</odoo>

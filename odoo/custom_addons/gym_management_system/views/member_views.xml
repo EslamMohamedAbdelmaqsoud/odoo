@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View Inherit For Gym Member Details -->
+    <record id="gym_member_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.gym.form.view.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_gym_member" invisible="1"/>
+                <field name="member_id" invisible="not is_gym_member"/>
+                <field name="membership_status" widget="badge"
+                       decoration-success="membership_status == 'active'"
+                       decoration-danger="membership_status == 'expired'"
+                       decoration-info="membership_status == 'frozen'"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Gym Details" invisible="not is_gym_member">
+                    <group>
+                        <group>
+                            <field name="birth_date"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="blood_type"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Window Actions -->
+    <record id="action_gym_members" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_gym_member', '=', True)]</field>
+        <field name="context">{'default_is_gym_member': True}</field>
+    </record>
+
+    <!-- Sub Menu Items Of Members ( All Members )-->
+    <menuitem id="menu_gym_members"
+              name="All Members"
+              parent="menu_gym_members_master"
+              action="action_gym_members"
+              sequence="10"/>
+
+</odoo>

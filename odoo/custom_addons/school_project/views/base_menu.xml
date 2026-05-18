@@ -1,0 +1,26 @@
+<odoo>
+
+
+    <!--  Root Menu Items  Schools -->
+    <menuitem id="school_root_menu"
+              name="School App"
+              web_icon="school_project,static/description/icon.png"/>
+
+
+    <!-- (Customers) Sub Menu Items Of Root -->
+    <menuitem id="customers_menu"
+              name="Customer Management"
+              parent="school_root_menu"/>
+
+    <!-- (Products) Sub Menu Items Of Root -->
+    <menuitem id="products_menu"
+              name="Product Management"
+              parent="school_root_menu"/>
+
+    <!-- (Orders) Sub Menu Items Of Root -->
+    <menuitem id="orders_menu"
+              name="Sales Order System"
+              parent="school_root_menu"/>
+
+
+</odoo>
