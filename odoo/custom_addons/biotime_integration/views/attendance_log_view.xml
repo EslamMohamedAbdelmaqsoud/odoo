@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 1. شاشة العرض الشجرية / الجدول (List View) -->
+    <record id="view_biotime_raw_log_tree" model="ir.ui.view">
+        <field name="name">biotime.raw.log.tree</field>
+        <field name="model">biotime.raw.log</field>
+        <field name="arch" type="xml">
+            <tree string="حركات البصمة الخام" create="false" edit="false" delete="true">
+                <field name="emp_code"/>
+                <field name="biotime_original_time"/>
+                <field name="punch_time"/>
+                <field name="punch_state" widget="badge" decoration-success="punch_state == '0'" decoration-danger="punch_state == '1'"/>
+                <field name="synced_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- 2. شاشة العرض التفصيلية (Form View) -->
+    <record id="view_biotime_raw_log_form" model="ir.ui.view">
+        <field name="name">biotime.raw.log.form</field>
+        <field name="model">biotime.raw.log</field>
+        <field name="arch" type="xml">
+            <form string="تفاصيل حركة البصمة" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group string="بيانات الموظف والتوقيت">
+                            <field name="emp_code"/>
+                            <field name="punch_state"/>
+                        </group>
+                        <group string="تفاصيل السحب والوقت">
+                            <field name="biotime_original_time"/>
+                            <field name="punch_time"/>
+                            <field name="synced_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 3. شاشة البحث والفلترة (Search View) -->
+    <record id="view_biotime_raw_log_search" model="ir.ui.view">
+        <field name="name">biotime.raw.log.search</field>
+        <field name="model">biotime.raw.log</field>
+        <field name="arch" type="xml">
+            <search string="بحث في حركات البصمة">
+                <field name="emp_code" string="كود الموظف"/>
+                <filter string="حركات الدخول" name="in_punches" domain="[('punch_state', '=', '0')]"/>
+                <filter string="حركات الخروج" name="out_punches" domain="[('punch_state', '=', '1')]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="كود الموظف" name="group_by_emp" context="{'group_by': 'emp_code'}"/>
+                    <filter string="الحالة" name="group_by_state" context="{'group_by': 'punch_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- 4. الإجراء (Action) الذي يفتح الشاشات أعلاه -->
+    <record id="action_biotime_raw_log" model="ir.actions.act_window">
+        <field name="name">سجلات البصمة الخام</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">biotime.raw.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_biotime_raw_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                لا توجد حركات بصمة مسحوبة بعد!
+            </p>
+            <p>
+                سيتم ملء هذا الجدول تلقائياً كل يوم الساعة 12 منتصف الليل عبر الـ API.
+            </p>
+        </field>
+    </record>
+
+    <!-- 5. إنشاء القوائم الجانبية (Menus) -->
+    <!-- القائمة الرئيسية العلوية في أودو -->
+    <menuitem id="menu_biotime_root"
+              name="بصمات BioTime"
+              sequence="25"
+              web_icon="base,static/description/icon.png"/>
+
+    <!-- القائمة الفرعية الداخلية -->
+    <menuitem id="menu_biotime_raw_logs"
+              name="السجلات الخام"
+              parent="menu_biotime_root"
+              action="action_biotime_raw_log"
+              sequence="1"/>
+</odoo>
