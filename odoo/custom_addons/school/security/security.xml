@@ -1,4 +1,5 @@
 <odoo>
+    <data>
     <!-- Define a new Category (School) for the student model -->
     <record id="student_category" model="ir.module.category">
         <field name="name">School Management</field>
@@ -36,4 +37,5 @@
     <!--        <field name="perm_unlink" eval="True"/>-->
     <!--    </record>-->
 
+    </data>
 </odoo>

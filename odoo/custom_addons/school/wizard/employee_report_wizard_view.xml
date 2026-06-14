@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- View for the employee report wizard -->
+        <record id="view_employee_report_wizard_form" model="ir.ui.view">
+            <field name="name">employee.report.wizard.form</field>
+            <field name="model">employee.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="New employee report">
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_print_employee_report" string="Print Report" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to open the employee report wizard -->
+        <record id="action_employee_report_wizard" model="ir.actions.act_window">
+            <field name="name">Report employees by date of hire</field>
+            <field name="res_model">employee.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Menu item to access the employee report wizard -->
+        <menuitem id="menu_hr_employee_report_wizard"
+                  name="Report employees by date of hire"
+                  action="action_employee_report_wizard"
+                  parent="hr.menu_hr_reporting_timesheet"
+                  sequence="10"/>
+    </data>
+</odoo>

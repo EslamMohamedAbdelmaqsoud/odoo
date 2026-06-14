@@ -1,4 +1,5 @@
 <odoo>
+    <data>
 
 
     <!-- Root Menu Items -->
@@ -32,4 +33,5 @@
               parent="school_management_system_root_menu"/>
 
 
+    </data>
 </odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Employee report action -->
+        <record id="action_report_hr_employees" model="ir.actions.report">
+            <field name="name">New Employee Hiring Report</field>
+            <field name="model">employee.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school.report_employee_hire_template</field>
+            <field name="report_file">school.report_employee_hire_template</field>
+            <field name="binding_model_id" ref="model_employee_report_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- Employee report template -->
+        <template id="report_employee_hire_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page" style="direction: ltr; text-align: left; font-family: Arial, sans-serif;">
+                        <div class="text-center" style="margin-bottom: 30px;">
+                            <h2>Human Resources - New Employee Hiring Report</h2>
+                            <h5>Employees hired from: <span t-esc="start_date"/> to: <span t-esc="end_date"/></h5>
+                        </div>
+
+                        <!-- Employee data table -->
+                        <table class="table table-bordered table-striped mt32">
+                            <thead>
+                                <tr class="table-active">
+                                    <th class="text-start">Employee Name</th>
+                                    <th class="text-start">Job Title</th>
+                                    <th class="text-start">Department</th>
+                                    <th class="text-start">Creation Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- docs contains the employee records passed from Python -->
+                                <t t-foreach="docs" t-as="doc">
+                                    <tr>
+                                        <td><span t-field="doc.name"/></td>
+                                        <td><span t-field="doc.job_id.name"/></td>
+                                        <td><span t-field="doc.department_id.name"/></td>
+                                        <td><span t-field="doc.create_date"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

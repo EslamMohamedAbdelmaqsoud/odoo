@@ -50,7 +50,7 @@ class Student(models.Model):
     subject_ids = fields.One2many('subject', 'student_id', string='Subjects')
     teacher_id = fields.Many2one('res.users', string='Teacher')
 
-    # Sql Constraint Validation ( data base )
+    # SQL Constraint Validation ( database )
     _sql_constraints = [('unique_name', 'unique(name)', 'The name is Exist!'),
                         ('unique_phone', 'unique(phone_number)', 'The phone is Exist!'),
                         ('unique_email', 'unique(email)', 'The email is Exist!')
