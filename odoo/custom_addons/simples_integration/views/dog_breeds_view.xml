@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  (Tree View) -->
+    <record id="view_dog_breed_tree" model="ir.ui.view">
+        <field name="name">dog.breeds.tree</field>
+        <field name="model">dog.breeds</field>
+        <field name="arch" type="xml">
+            <tree string="Dog Breeds">
+                <field name="name"/>
+                <field name="sub_breeds"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- (Form View)  -->
+    <record id="view_dog_breed_form" model="ir.ui.view">
+        <field name="name">dog.breeds.form</field>
+        <field name="model">dog.breeds</field>
+        <field name="arch" type="xml">
+            <form string="Dog Breed">
+                <header>
+                    <button name="action_sync_breeds"
+                            string="Data synchronization from API"
+                            type="object"
+                            class="oe_highlight"
+                            icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sub_breeds"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--  (Action) -->
+    <record id="action_dog_breed" model="ir.actions.act_window">
+        <field name="name">Dog Breeds Api</field>
+        <field name="res_model">dog.breeds</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- (Menu Item) -->
+    <menuitem id="menu_dog_breed_sub" name="List of breeds" parent="dog_breed_menu"
+              action="action_dog_breed"
+              sequence="10"/>
+
+</odoo>

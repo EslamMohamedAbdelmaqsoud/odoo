@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dog_breeds,access_dog_breeds,model_dog_breeds,,1,1,1,1
+access_pokemon_sync,access_pokemon_sync,model_pokemon_sync,,1,1,1,1
+
+

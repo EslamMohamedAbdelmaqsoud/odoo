@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_pokemon_kanban" model="ir.ui.view">
+        <field name="name">pokemon.sync.kanban</field>
+        <field name="model">pokemon.sync</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="image_url"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click"
+                             style="text-align: center; border: 1px solid #ddd; padding: 10px;">
+                            <div class="o_kanban_image">
+                                <img t-att-src="record.image_url.raw_value" style="width: 80px; height: 80px;"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <br/>
+                                <span>Weight:
+                                    <field name="weight"/>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="ir_cron_generic_sync" model="ir.cron">
+        <field name="name">API Sync: Every 3 Hours</field>
+        <field name="model_id" ref="model_pokemon_sync"/>
+        <field name="state">code</field>
+        <field name="code">model.action_fetch_data()</field>
+        <field name="interval_number">3</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="action_pokemon" model="ir.actions.act_window">
+        <field name="name">Pokedex API</field>
+        <field name="res_model">pokemon.sync</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="menu_pokemon_root" name="PokeAPI" action="action_pokemon" parent="simple_integration_root_menu"/>
+</odoo>

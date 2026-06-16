@@ -1,0 +1,15 @@
+<odoo>
+
+
+    <!--  Root Menu Items  Simples Integration -->
+    <menuitem id="simple_integration_root_menu"
+              name="Simples Integration"/>
+
+
+    <!-- (Dog Breeds) Sub Menu Items Of Root -->
+    <menuitem id="dog_breed_menu"
+              name="Dog Breed Management"
+              parent="simple_integration_root_menu"/>
+
+
+</odoo>
