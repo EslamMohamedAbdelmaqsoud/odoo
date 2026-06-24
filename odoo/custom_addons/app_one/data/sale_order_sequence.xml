@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Sequence for Property -->
+        <record id="sale_order_sequence" model="ir.sequence">
+            <field name="name">Sale Order Sequence</field>
+            <field name="code">sale_order_sequence</field>
+            <field name="prefix">SAL</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

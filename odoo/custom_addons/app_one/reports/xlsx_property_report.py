@@ -8,7 +8,7 @@ import io
 # This controller defines an endpoint to generate and download an Excel report of properties based on their IDs.
 class XlsxPropertyReport(http.Controller):
 
-    @http.route("/property/excel/report/<string:property_ids>", type="http", auth="user")  # 1- handel endpoint
+    @http.route("/property/excel/report/<string:property_ids>", type="http", auth="user")  # 1- handle endpoint
     # 2- methods to generate the report
     def download_property_excel_report(self, property_ids):
 
